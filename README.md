@@ -4,4 +4,4 @@
 - `make`
 
 ### Screencast of app:
-![alt text]()
+![alt text](https://github.com/Acool4ik/Visualization-of-waves/blob/master/images/screencast.gif)
