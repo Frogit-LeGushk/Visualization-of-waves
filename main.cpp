@@ -8,8 +8,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define W_WIDTH 1920
-#define W_HEIGHT 1080
+int W_WIDTH = 1920;
+int W_HEIGHT = 1080;
 #define SIZE_FIELD 100
 #define MAX_HEIGHT 30
 
@@ -195,7 +195,12 @@ int main(void)
 
     assert(glfwInit());
 
-    window = glfwCreateWindow(W_WIDTH, W_HEIGHT, "waves", glfwGetPrimaryMonitor(), NULL);
+    GLFWmonitor *   monitor     =   glfwGetPrimaryMonitor();
+    window = glfwCreateWindow(W_WIDTH, W_HEIGHT, "waves", monitor, NULL);
+    const GLFWvidmode * mode    =   glfwGetVideoMode(monitor);
+    W_WIDTH = mode->width;
+    W_HEIGHT = mode->height;
+
     if (!window) {glfwTerminate(); return -1;}
 
     glfwMakeContextCurrent(window);
